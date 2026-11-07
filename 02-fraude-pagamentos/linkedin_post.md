@@ -12,7 +12,7 @@ A análise de capacidade tornou a avaliação mais operacional: se a equipe pude
 
 Esses números são resultados retrospectivos neste split específico, não uma promessa de desempenho futuro. A base cobre apenas dois dias, é anonimizada e não informa custos de revisão, perdas, recuperações ou impacto sobre clientes. Portanto, não estimei economia nem ROI. Para avançar em direção a uma decisão operacional, seria necessário validar em períodos mais longos, estimar incerteza, definir custos com a área de risco e testar prospectivamente com supervisão humana.
 
-Código, métricas e gráfico da curva Precisão–Recall: [repositório/arquivos do projeto](LINK_DO_REPOSITORIO). O pipeline salva também métricas detalhadas e a curva de fraude capturada por capacidade de revisão.
+Código, métricas e gráfico da curva Precisão–Recall: [código, métricas e gráficos do projeto](https://github.com/mariaalkimim-tech/portfolio-ciencia-dados-ia/tree/main/02-fraude-pagamentos). O pipeline salva também métricas detalhadas e a curva de fraude capturada por capacidade de revisão.
 
 **Para quem trabalha com risco, dados ou prevenção a fraude:** qual restrição pesa mais na prática ao priorizar alertas — capacidade da equipe, custo dos falsos positivos ou latência para bloquear uma transação?
 
@@ -20,4 +20,4 @@ Código, métricas e gráfico da curva Precisão–Recall: [repositório/arquivo
 
 ---
 
-**Antes de publicar:** substitua `LINK_DO_REPOSITORIO` pelo link do GitHub ou portfólio onde o código e os artefatos estejam acessíveis. As métricas acima foram geradas pelo script neste projeto; a avaliação é de benchmark, não de produção. Fonte e limitações: [OpenML 42175](https://www.openml.org/d/42175) e [dataset ULB/Worldline no Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
+As métricas acima foram geradas pelo script deste projeto; a avaliação é de benchmark, não de produção. Fontes e limitações: [OpenML 42175](https://www.openml.org/d/42175) e [dataset ULB/Worldline no Kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
