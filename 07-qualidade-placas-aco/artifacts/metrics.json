@@ -1,0 +1,274 @@
+{
+  "dataset": "UCI Steel Plates Faults (id 198)",
+  "dataset_nature": "historical public manufacturing benchmark",
+  "target_formulation": "seven one-hot target columns verified to have exactly one active class per row; converted to multiclass label",
+  "features": [
+    "X_Minimum",
+    "X_Maximum",
+    "Y_Minimum",
+    "Y_Maximum",
+    "Pixels_Areas",
+    "X_Perimeter",
+    "Y_Perimeter",
+    "Sum_of_Luminosity",
+    "Maximum_of_Luminosity",
+    "Length_of_Conveyer",
+    "TypeOfSteel_A300",
+    "TypeOfSteel_A400",
+    "Steel_Plate_Thickness",
+    "Edges_Index",
+    "Empty_Index",
+    "Square_Index",
+    "Outside_X_Index",
+    "Edges_X_Index",
+    "Edges_Y_Index",
+    "Outside_Global_Index",
+    "LogOfAreas",
+    "Log_X_Index",
+    "Log_Y_Index",
+    "Orientation_Index",
+    "Luminosity_Index",
+    "SigmoidOfAreas",
+    "Minimum_of_Luminosity"
+  ],
+  "classes": [
+    "Pastry",
+    "Z_Scratch",
+    "K_Scratch",
+    "Stains",
+    "Dirtiness",
+    "Bumps",
+    "Other_Faults"
+  ],
+  "rows": 1941,
+  "split": "stratified 75/25; hyperparameters selected by 5-fold StratifiedKFold macro-F1 on training partition",
+  "random_seed": 42,
+  "cross_validation": {
+    "logistic_regression_balanced": {
+      "best_cv_macro_f1": 0.681048466469516,
+      "best_params": {
+        "model__C": 1.0
+      }
+    },
+    "random_forest_balanced": {
+      "best_cv_macro_f1": 0.7906123244886158,
+      "best_params": {
+        "model__max_depth": null,
+        "model__min_samples_leaf": 1,
+        "model__n_estimators": 250
+      }
+    }
+  },
+  "selected_model": "random_forest_balanced",
+  "test_metrics": {
+    "rows": 486,
+    "class_counts": {
+      "Pastry": 39,
+      "Z_Scratch": 48,
+      "K_Scratch": 98,
+      "Stains": 18,
+      "Dirtiness": 14,
+      "Bumps": 101,
+      "Other_Faults": 168
+    },
+    "accuracy": 0.8106995884773662,
+    "balanced_accuracy": 0.792282548786388,
+    "macro_f1": 0.8262903420290894,
+    "weighted_f1": 0.8102816539904548,
+    "macro_average_precision_ovr": 0.8664334464907597,
+    "top_2_accuracy": 0.9403292181069959,
+    "per_class": {
+      "Pastry": {
+        "precision": 0.6785714285714286,
+        "recall": 0.48717948717948717,
+        "f1": 0.5671641791044776,
+        "support": 39,
+        "average_precision_ovr": 0.6588368702727836
+      },
+      "Z_Scratch": {
+        "precision": 0.9761904761904762,
+        "recall": 0.8541666666666666,
+        "f1": 0.9111111111111111,
+        "support": 48,
+        "average_precision_ovr": 0.9787802594615859
+      },
+      "K_Scratch": {
+        "precision": 0.967741935483871,
+        "recall": 0.9183673469387755,
+        "f1": 0.9424083769633508,
+        "support": 98,
+        "average_precision_ovr": 0.9704343569677616
+      },
+      "Stains": {
+        "precision": 1.0,
+        "recall": 0.7777777777777778,
+        "f1": 0.875,
+        "support": 18,
+        "average_precision_ovr": 0.8890909090909092
+      },
+      "Dirtiness": {
+        "precision": 1.0,
+        "recall": 0.9285714285714286,
+        "f1": 0.9629629629629629,
+        "support": 14,
+        "average_precision_ovr": 0.9503105590062111
+      },
+      "Bumps": {
+        "precision": 0.7684210526315789,
+        "recall": 0.7227722772277227,
+        "f1": 0.7448979591836735,
+        "support": 101,
+        "average_precision_ovr": 0.7778207201606293
+      },
+      "Other_Faults": {
+        "precision": 0.7164179104477612,
+        "recall": 0.8571428571428571,
+        "f1": 0.7804878048780488,
+        "support": 168,
+        "average_precision_ovr": 0.8397604504754373
+      }
+    },
+    "confusion_matrix_labels_order": [
+      "Pastry",
+      "Z_Scratch",
+      "K_Scratch",
+      "Stains",
+      "Dirtiness",
+      "Bumps",
+      "Other_Faults"
+    ],
+    "confusion_matrix": [
+      [
+        19,
+        0,
+        0,
+        0,
+        0,
+        4,
+        16
+      ],
+      [
+        0,
+        41,
+        1,
+        0,
+        0,
+        2,
+        4
+      ],
+      [
+        0,
+        0,
+        90,
+        0,
+        0,
+        0,
+        8
+      ],
+      [
+        0,
+        0,
+        0,
+        14,
+        0,
+        1,
+        3
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        13,
+        0,
+        1
+      ],
+      [
+        3,
+        0,
+        0,
+        0,
+        0,
+        73,
+        25
+      ],
+      [
+        6,
+        1,
+        2,
+        0,
+        0,
+        15,
+        144
+      ]
+    ],
+    "classification_report": {
+      "Pastry": {
+        "precision": 0.6785714285714286,
+        "recall": 0.48717948717948717,
+        "f1-score": 0.5671641791044776,
+        "support": 39.0
+      },
+      "Z_Scratch": {
+        "precision": 0.9761904761904762,
+        "recall": 0.8541666666666666,
+        "f1-score": 0.9111111111111111,
+        "support": 48.0
+      },
+      "K_Scratch": {
+        "precision": 0.967741935483871,
+        "recall": 0.9183673469387755,
+        "f1-score": 0.9424083769633508,
+        "support": 98.0
+      },
+      "Stains": {
+        "precision": 1.0,
+        "recall": 0.7777777777777778,
+        "f1-score": 0.875,
+        "support": 18.0
+      },
+      "Dirtiness": {
+        "precision": 1.0,
+        "recall": 0.9285714285714286,
+        "f1-score": 0.9629629629629629,
+        "support": 14.0
+      },
+      "Bumps": {
+        "precision": 0.7684210526315789,
+        "recall": 0.7227722772277227,
+        "f1-score": 0.7448979591836735,
+        "support": 101.0
+      },
+      "Other_Faults": {
+        "precision": 0.7164179104477612,
+        "recall": 0.8571428571428571,
+        "f1-score": 0.7804878048780488,
+        "support": 168.0
+      },
+      "accuracy": 0.8106995884773662,
+      "macro avg": {
+        "precision": 0.8724775433321594,
+        "recall": 0.7922825487863878,
+        "f1-score": 0.8262903420290894,
+        "support": 486.0
+      },
+      "weighted avg": {
+        "precision": 0.8191952130038298,
+        "recall": 0.8106995884773662,
+        "f1-score": 0.8102816539904548,
+        "support": 486.0
+      }
+    }
+  },
+  "most_frequent_baseline_test": {
+    "accuracy": 0.345679012345679,
+    "balanced_accuracy": 0.14285714285714285,
+    "macro_f1": 0.07339449541284404
+  },
+  "limitations": [
+    "Small dataset; minority classes have few test cases and per-class scores are uncertain.",
+    "Random stratified split is appropriate to this non-temporal benchmark but is not a test of future production drift.",
+    "No inspection costs, downstream scrap/rework costs or factory-specific quality definitions are provided.",
+    "A class prediction is decision support for inspection prioritization, not authorization to auto-reject product."
+  ]
+}

@@ -1,25 +1,27 @@
 # Portfólio de Ciência de Dados, Analytics e IA
 
-Este repositório reúne cinco projetos orientados a problemas empresariais de dados e inteligência artificial. O projeto de detecção de fraude inclui pipeline Python executado, métricas e gráficos sobre um benchmark público. Os outros quatro são propostas técnicas; ainda não têm implementação ou resultados empíricos.
+Este repositório reúne projetos voltados a problemas empresariais de dados e inteligência artificial. Os projetos 2, 6 e 7 incluem código executável e resultados em benchmarks públicos. Os projetos 1, 3, 4 e 5 são propostas técnicas e ainda não têm implementação experimental.
 
 ## Projetos
 
-1. **[Previsão de demanda e estoque](01-previsao-estoque/README.md)** — proposta de previsão temporal e avaliação de políticas de reposição.
-2. **[Detecção de fraude em pagamentos](02-fraude-pagamentos/README.md)** — pipeline executável, resultados no conjunto OpenML 42175 e análise de capacidade de revisão.
+1. **[Previsão de demanda e estoque](01-previsao-estoque/README.md)** — proposta de previsão temporal e avaliação de política de reposição.
+2. **[Detecção de fraude em pagamentos](02-fraude-pagamentos/README.md)** — pipeline cronológico de detecção e priorização da fila de revisão.
 3. **[Incrementalidade e uplift](03-uplift-campanhas/README.md)** — proposta de avaliação causal para campanhas.
-4. **[Assistente corporativo com RAG](04-rag-corporativo/README.md)** — proposta de busca e resposta com fontes, avaliação e controles de segurança.
-5. **[Governança e monitoramento de modelos](05-governanca-modelos/README.md)** — proposta de documentação, avaliação de fairness e monitoramento do ciclo de vida.
+4. **[Assistente corporativo com RAG](04-rag-corporativo/README.md)** — proposta de busca e resposta apoiadas por fontes, com avaliação e controles de segurança.
+5. **[Governança e monitoramento de modelos](05-governanca-modelos/README.md)** — proposta de documentação, fairness e monitoramento do ciclo de vida.
+6. **[Manutenção preditiva industrial](06-manutencao-preditiva/README.md)** — classificação de falhas com split cronológico e métricas de capacidade de inspeção. Usa o AI4I, que é explicitamente sintético.
+7. **[Qualidade de placas de aço](07-qualidade-placas-aco/README.md)** — classificação multiclasse de sete defeitos, com validação cruzada estratificada e métricas macro.
 
-## Resultado do projeto de fraude
+## Resultados dos dois projetos B2B adicionados
 
-O pipeline compara regressão logística balanceada e HistGradientBoosting, com divisão cronológica em treino, validação e teste. A seleção do modelo é feita na validação; o teste é reservado para avaliação final. Na partição de teste usada, a regressão logística obteve Average Precision de 0,762. Entre os 0,1% de registros de maior score, o ranking incluiu 52 das 75 fraudes da partição (precisão de 91,2% e recall de 69,3%). Os detalhes, incluindo outras capacidades e ressalvas, estão no README e em `metrics.json` do projeto.
+No AI4I, o Random Forest balanceado obteve Average Precision de **0,685** no teste cronológico de 2.000 observações. Ao encaminhar os 1% com maior score para inspeção, o ranking incluiu 18 das 39 falhas do teste (precisão de 90%; recall de 46,2%). O conjunto e os mecanismos de falha são sintéticos; não se infere redução real de downtime nem ROI.
 
-Esses números descrevem um split retrospectivo de um benchmark anonimizado que cobre apenas dois dias. Não são resultados de produção, garantia de generalização ou estimativa de economia. O conjunto original não é redistribuído neste repositório; as fontes e instruções para obtê-lo estão documentadas nos projetos.
+No Steel Plates Faults, o Random Forest obteve **F1 macro de 0,826**, **acurácia balanceada de 0,792** e **Average Precision macro one-vs-rest de 0,866** no split estratificado de teste com 486 linhas. O teste tem somente 14 exemplos da classe Dirtiness, então métricas de classes raras são incertas e não equivalem a validação em uma usina.
 
-## Como reproduzir o projeto de fraude
+## Reproduzir
 
-Consulte o [README do projeto de fraude](02-fraude-pagamentos/README.md) para instalar dependências e executar `fraud_pipeline.py`. A primeira execução precisa acessar o OpenML, ou pode receber um CSV local compatível. Os gráficos e as métricas publicados foram produzidos pelo pipeline. O arquivo de modelo serializado é excluído do controle de versão; pode ser recriado localmente ao executar o script.
+Cada projeto executável tem seu próprio `requirements.txt`, instruções e script de linha de comando. Os scripts buscam os dados nos repositórios UCI via `ucimlrepo`; é necessária conexão à internet na primeira execução. Métricas e gráficos são versionados. Dados brutos, modelos serializados, ambientes e cache local são excluídos do Git.
 
 ## Integridade dos dados
 
-Cada projeto lista suas fontes e limitações. As bases de fraude e uplift não devem ser tratadas como representativas de uma empresa específica. A base de varejo UCI é histórica. O benchmark Adult é antigo e deriva dos EUA. Um conjunto de dados de benchmark ajuda a testar métodos, mas não substitui validação com dados autorizados e contexto operacional real.
+Os resultados são de partições de benchmark e estão acompanhados por limitações. Eles não são evidência de produção, garantia de generalização ou prova de retorno financeiro. Os dados originais não são redistribuídos aqui; consulte as fontes e licenças nos READMEs dos projetos. Para implantação B2B, são necessários dados autorizados da operação, validação prospectiva, custos e revisão de especialistas.

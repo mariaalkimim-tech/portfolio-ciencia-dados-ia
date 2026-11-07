@@ -1,0 +1,138 @@
+{
+  "dataset": "UCI AI4I 2020 Predictive Maintenance Dataset (id 601)",
+  "dataset_nature": "synthetic benchmark; not field evidence",
+  "target": "Machine failure",
+  "features": [
+    "Type",
+    "Air temperature",
+    "Process temperature",
+    "Rotational speed",
+    "Torque",
+    "Tool wear"
+  ],
+  "excluded_leakage_columns": [
+    "TWF",
+    "HDF",
+    "PWF",
+    "OSF",
+    "RNF",
+    "UDI",
+    "Product ID"
+  ],
+  "split": "original row order, 60% train / 20% validation / 20% test; order is not a predictor",
+  "split_counts": {
+    "train": {
+      "rows": 6000,
+      "failures": 255
+    },
+    "validation": {
+      "rows": 2000,
+      "failures": 45
+    },
+    "test": {
+      "rows": 2000,
+      "failures": 39
+    }
+  },
+  "validation_metrics": {
+    "logistic_regression_balanced": {
+      "rows": 2000,
+      "failures": 45,
+      "failure_rate": 0.0225,
+      "average_precision": 0.3690340969770199,
+      "roc_auc_secondary": 0.8938562091503267,
+      "brier_score": 0.07542047742322983,
+      "capacity": [
+        {
+          "review_capacity_fraction": 0.01,
+          "alerts": 20,
+          "failures_captured": 11,
+          "precision_at_capacity": 0.55,
+          "recall_at_capacity": 0.24444444444444444
+        },
+        {
+          "review_capacity_fraction": 0.05,
+          "alerts": 100,
+          "failures_captured": 25,
+          "precision_at_capacity": 0.25,
+          "recall_at_capacity": 0.5555555555555556
+        },
+        {
+          "review_capacity_fraction": 0.1,
+          "alerts": 200,
+          "failures_captured": 31,
+          "precision_at_capacity": 0.155,
+          "recall_at_capacity": 0.6888888888888889
+        }
+      ]
+    },
+    "random_forest_balanced": {
+      "rows": 2000,
+      "failures": 45,
+      "failure_rate": 0.0225,
+      "average_precision": 0.6233718660446638,
+      "roc_auc_secondary": 0.9708383063370276,
+      "brier_score": 0.013600925855583614,
+      "capacity": [
+        {
+          "review_capacity_fraction": 0.01,
+          "alerts": 20,
+          "failures_captured": 14,
+          "precision_at_capacity": 0.7,
+          "recall_at_capacity": 0.3111111111111111
+        },
+        {
+          "review_capacity_fraction": 0.05,
+          "alerts": 100,
+          "failures_captured": 36,
+          "precision_at_capacity": 0.36,
+          "recall_at_capacity": 0.8
+        },
+        {
+          "review_capacity_fraction": 0.1,
+          "alerts": 200,
+          "failures_captured": 41,
+          "precision_at_capacity": 0.205,
+          "recall_at_capacity": 0.9111111111111111
+        }
+      ]
+    }
+  },
+  "selected_model": "random_forest_balanced",
+  "test_metrics": {
+    "rows": 2000,
+    "failures": 39,
+    "failure_rate": 0.0195,
+    "average_precision": 0.6847883876234995,
+    "roc_auc_secondary": 0.9522614050915938,
+    "brier_score": 0.010645404940810125,
+    "capacity": [
+      {
+        "review_capacity_fraction": 0.01,
+        "alerts": 20,
+        "failures_captured": 18,
+        "precision_at_capacity": 0.9,
+        "recall_at_capacity": 0.46153846153846156
+      },
+      {
+        "review_capacity_fraction": 0.05,
+        "alerts": 100,
+        "failures_captured": 29,
+        "precision_at_capacity": 0.29,
+        "recall_at_capacity": 0.7435897435897436
+      },
+      {
+        "review_capacity_fraction": 0.1,
+        "alerts": 200,
+        "failures_captured": 34,
+        "precision_at_capacity": 0.17,
+        "recall_at_capacity": 0.8717948717948718
+      }
+    ]
+  },
+  "limitations": [
+    "Synthetic observations and failure mechanisms; performance cannot be generalized to real factories.",
+    "A row is not necessarily a full asset lifecycle, and no costs, maintenance actions or repair outcomes are supplied.",
+    "Capacity metrics measure ranking only; they do not establish saved downtime or economic benefit."
+  ]
+}
