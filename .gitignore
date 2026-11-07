@@ -1,0 +1,10 @@
+# Python environments and temporary files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local datasets and model binaries; metrics and plots remain versioned
+data/
+*.joblib
