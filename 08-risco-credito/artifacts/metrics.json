@@ -1,0 +1,151 @@
+{
+  "dataset": "UCI Default of Credit Card Clients (id 350)",
+  "source_population": "Taiwan credit-card clients; payment history from April-September 2005; target next-month default",
+  "target": "Y",
+  "sensitive_audit_field_excluded_from_features": "X2",
+  "features": [
+    "X1",
+    "X3",
+    "X4",
+    "X5",
+    "X6",
+    "X7",
+    "X8",
+    "X9",
+    "X10",
+    "X11",
+    "X12",
+    "X13",
+    "X14",
+    "X15",
+    "X16",
+    "X17",
+    "X18",
+    "X19",
+    "X20",
+    "X21",
+    "X22",
+    "X23"
+  ],
+  "split": "stratified 50/25/25 train-validation-test; fixed seed 42",
+  "validation_metrics": {
+    "logistic_regression": {
+      "n": 7500,
+      "defaults": 1659,
+      "default_rate": 0.2212,
+      "average_precision": 0.49779994306805464,
+      "roc_auc_secondary": 0.7262688799912571,
+      "brier_score": 0.14510807878005838,
+      "log_loss": 0.46734699229029875,
+      "capacity": [
+        {
+          "review_fraction": 0.05,
+          "n_reviewed": 375,
+          "defaults_in_top_k": 270,
+          "precision_at_k": 0.72,
+          "recall_at_k": 0.162748643761302
+        },
+        {
+          "review_fraction": 0.1,
+          "n_reviewed": 750,
+          "defaults_in_top_k": 500,
+          "precision_at_k": 0.6666666666666666,
+          "recall_at_k": 0.3013863773357444
+        },
+        {
+          "review_fraction": 0.2,
+          "n_reviewed": 1500,
+          "defaults_in_top_k": 821,
+          "precision_at_k": 0.5473333333333333,
+          "recall_at_k": 0.4948764315852923
+        }
+      ]
+    },
+    "hist_gradient_boosting": {
+      "n": 7500,
+      "defaults": 1659,
+      "default_rate": 0.2212,
+      "average_precision": 0.5604015636640421,
+      "roc_auc_secondary": 0.7867796383136438,
+      "brier_score": 0.132799788736602,
+      "log_loss": 0.4246643157883035,
+      "capacity": [
+        {
+          "review_fraction": 0.05,
+          "n_reviewed": 375,
+          "defaults_in_top_k": 280,
+          "precision_at_k": 0.7466666666666667,
+          "recall_at_k": 0.16877637130801687
+        },
+        {
+          "review_fraction": 0.1,
+          "n_reviewed": 750,
+          "defaults_in_top_k": 528,
+          "precision_at_k": 0.704,
+          "recall_at_k": 0.3182640144665461
+        },
+        {
+          "review_fraction": 0.2,
+          "n_reviewed": 1500,
+          "defaults_in_top_k": 863,
+          "precision_at_k": 0.5753333333333334,
+          "recall_at_k": 0.5201928872814949
+        }
+      ]
+    }
+  },
+  "selected_model": "hist_gradient_boosting",
+  "test_metrics": {
+    "n": 7500,
+    "defaults": 1659,
+    "default_rate": 0.2212,
+    "average_precision": 0.5563372035885031,
+    "roc_auc_secondary": 0.7788532952660822,
+    "brier_score": 0.1350271187089217,
+    "log_loss": 0.4299532140377754,
+    "capacity": [
+      {
+        "review_fraction": 0.05,
+        "n_reviewed": 375,
+        "defaults_in_top_k": 292,
+        "precision_at_k": 0.7786666666666666,
+        "recall_at_k": 0.17600964436407474
+      },
+      {
+        "review_fraction": 0.1,
+        "n_reviewed": 750,
+        "defaults_in_top_k": 521,
+        "precision_at_k": 0.6946666666666667,
+        "recall_at_k": 0.3140446051838457
+      },
+      {
+        "review_fraction": 0.2,
+        "n_reviewed": 1500,
+        "defaults_in_top_k": 841,
+        "precision_at_k": 0.5606666666666666,
+        "recall_at_k": 0.5069318866787221
+      }
+    ]
+  },
+  "sex_code_group_audit_descriptive": {
+    "1": {
+      "rows": 2983,
+      "default_rate": 0.23533355682199128,
+      "recall_at_threshold_0_5_descriptive": 0.3547008547008547,
+      "false_positive_rate_at_threshold_0_5_descriptive": 0.052170100832968
+    },
+    "2": {
+      "rows": 4517,
+      "default_rate": 0.21186628293114898,
+      "recall_at_threshold_0_5_descriptive": 0.3793103448275862,
+      "false_positive_rate_at_threshold_0_5_descriptive": 0.05196629213483146
+    }
+  },
+  "limitations": [
+    "Historical Taiwan credit-card portfolio; not representative of current or other-country portfolios.",
+    "Threshold 0.5 is only descriptive and not a credit decision rule.",
+    "Sex is excluded from predictors but reported for descriptive group audit; this is not a fairness or legal-compliance certification.",
+    "Dataset lacks loss given default, recovery, collection and funding costs; expected loss and business ROI are not estimated.",
+    "Public retrospective test results do not establish production or regulatory suitability."
+  ]
+}

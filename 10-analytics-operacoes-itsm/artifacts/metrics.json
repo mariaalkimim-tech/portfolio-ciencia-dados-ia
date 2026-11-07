@@ -1,0 +1,161 @@
+{
+  "dataset": "BPI Challenge 2013 incidents, Volvo IT Belgium",
+  "source": "Official BPI Challenge XES event log; raw log excluded from repository",
+  "method": "Kaplan-Meier survival analysis; Closed/Resolved = event, other terminal states = right-censored at last observed event; no binary classifier is reported because the later temporal window has no cases above the train p75",
+  "privacy": "Resource/person names are not used in features or exported aggregates",
+  "process_kpis": {
+    "case_count": 7554,
+    "event_count": 65533,
+    "start_range_utc": [
+      "2010-03-31T14:59:42+00:00",
+      "2012-05-06T05:27:59+00:00"
+    ],
+    "resolution_hours_median_closed_only": 199.3413888888889,
+    "resolution_hours_p90_closed_only": 663.4163888888888,
+    "resolved_share": 0.7496690495101933,
+    "terminal_status_counts": {
+      "Closed": 5573,
+      "In Call": 1882,
+      "Resolved": 90,
+      "Wait - User": 3,
+      "In Progress": 2,
+      "Wait - Implementation": 2,
+      "Cancelled": 1,
+      "Assigned": 1
+    },
+    "open_cases_observed_span_hours_median": 0.13694444444444445,
+    "events_per_case_median": 6.0,
+    "handoffs_per_case_median": 1.0,
+    "cases_with_handoff_share": 0.5056923484246757,
+    "wait_share_proxy_median": 0.024603486150326627,
+    "monthly_case_volume": {
+      "2010-03": 1,
+      "2011-01": 1,
+      "2011-02": 2,
+      "2011-03": 1,
+      "2011-04": 2,
+      "2011-05": 4,
+      "2011-06": 7,
+      "2011-07": 4,
+      "2011-08": 6,
+      "2011-09": 3,
+      "2011-10": 7,
+      "2011-11": 12,
+      "2011-12": 12,
+      "2012-01": 43,
+      "2012-02": 45,
+      "2012-03": 176,
+      "2012-04": 2039,
+      "2012-05": 5189
+    },
+    "temporal_distribution_diagnostic": {
+      "train_p75_resolution_hours": 471.8461111111111,
+      "windows": {
+        "train": {
+          "all_cases": 4532,
+          "closed_or_resolved_cases": 3739,
+          "closed_cases_above_train_p75": 935,
+          "share_above_train_p75_among_closed": 0.2500668627975394
+        },
+        "validation": {
+          "all_cases": 1511,
+          "closed_or_resolved_cases": 986,
+          "closed_cases_above_train_p75": 1,
+          "share_above_train_p75_among_closed": 0.0010141987829614604
+        },
+        "later_period": {
+          "all_cases": 1511,
+          "closed_or_resolved_cases": 938,
+          "closed_cases_above_train_p75": 0,
+          "share_above_train_p75_among_closed": 0.0
+        }
+      },
+      "interpretation": "Strong temporal distribution shift: the later window contains no closed cases above the train p75; a binary long-duration classifier was not reported because the temporal holdout cannot test that class."
+    },
+    "overall_survival_analysis": {
+      "cases": 7554,
+      "resolved_events": 5663,
+      "right_censored_cases": 1891,
+      "resolution_event_share": 0.7496690495101933,
+      "kaplan_meier_median_resolution_hours": 200.18305555555557,
+      "survival_probability_no_resolution_by_horizon": {
+        "24h": 0.9319125918964526,
+        "72h": 0.8774558386670914,
+        "168h": 0.8109940544968207,
+        "720h": 0.08571349590788516
+      },
+      "restricted_mean_time_to_resolution_hours_tau": 277.8506732260947,
+      "tau_hours": 720.0
+    },
+    "survival_analysis_by_initial_impact": {
+      "High": {
+        "cases": 261,
+        "resolved_events": 251,
+        "right_censored_cases": 10,
+        "resolution_event_share": 0.9616858237547893,
+        "kaplan_meier_median_resolution_hours": 195.77138888888888,
+        "survival_probability_no_resolution_by_horizon": {
+          "24h": 0.9373132470119532,
+          "72h": 0.9059387450199207,
+          "168h": 0.8544781527729673,
+          "720h": 0.10381510267335121
+        },
+        "restricted_mean_time_to_resolution_hours_tau": 284.83272585796453,
+        "tau_hours": 720.0
+      },
+      "Low": {
+        "cases": 3245,
+        "resolved_events": 2135,
+        "right_censored_cases": 1110,
+        "resolution_event_share": 0.6579352850539292,
+        "kaplan_meier_median_resolution_hours": 247.45916666666668,
+        "survival_probability_no_resolution_by_horizon": {
+          "24h": 0.935873234804395,
+          "72h": 0.8883381144025239,
+          "168h": 0.8157875038392914,
+          "720h": 0.07734840133418633
+        },
+        "restricted_mean_time_to_resolution_hours_tau": 298.67650415509905,
+        "tau_hours": 720.0
+      },
+      "Major": {
+        "cases": 3,
+        "resolved_events": 3,
+        "right_censored_cases": 0,
+        "resolution_event_share": 1.0,
+        "kaplan_meier_median_resolution_hours": 204.83805555555554,
+        "survival_probability_no_resolution_by_horizon": {
+          "24h": 1.0,
+          "72h": 1.0,
+          "168h": 1.0,
+          "720h": 0.0
+        },
+        "restricted_mean_time_to_resolution_hours_tau": 199.13703703703703,
+        "tau_hours": 213.19805555555556
+      },
+      "Medium": {
+        "cases": 4045,
+        "resolved_events": 3274,
+        "right_censored_cases": 771,
+        "resolution_event_share": 0.8093943139678615,
+        "kaplan_meier_median_resolution_hours": 185.14055555555555,
+        "survival_probability_no_resolution_by_horizon": {
+          "24h": 0.9287427975667898,
+          "72h": 0.8678202143040712,
+          "168h": 0.804109946689158,
+          "720h": 0.08956736134401755
+        },
+        "restricted_mean_time_to_resolution_hours_tau": 263.6055504650986,
+        "tau_hours": 720.0
+      }
+    }
+  },
+  "limitations": [
+    "Historical process from one organization, 2010-2012; not representative of current ITSM without local validation.",
+    "No formal SLA target, ticket cost, customer impact, or satisfaction labels are supplied.",
+    "Wait-state time is an interval-derived proxy and should be validated against source-system semantics.",
+    "Cancellations are treated as censored rather than as competing events; this simplification can bias time-to-resolution estimates.",
+    "Kaplan-Meier estimates assume non-informative censoring, which may not hold when cases remain open for operational reasons.",
+    "Monthly case volume changes sharply near the end of the event log; the historical series should not be treated as a stable demand forecast."
+  ]
+}
